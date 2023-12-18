@@ -1,0 +1,61 @@
+//error
+$errorBorder: rgba(255, 25, 0, 0.322);
+$errorBg: rgb(192 29 29 /15%);
+$errorColor: #ef8d8dfa;
+
+//success
+$successBorder: rgba(0, 255, 0, 0.322);
+$successBg: rgba(246, 238, 9, 0.127);
+$successColor: #7acf58d6;
+
+//default
+$defaultBorder: #c8c8c8;
+$defaultBg: rgb(29 31 32 /71%);
+$defaultColor: #c8c8c8;
+
+//info
+$infoBorder: #646cff;
+$infoBg: rgp(100 108 255 /8%);
+$infoColor: #bcc0ff;
+
+//warning
+$warningBorder: rgba(255, 213, 0, 0.793);
+$warningBg: rgb(255 197 23 /5%);
+$warningColor: #fcd253;
+
+.bellIcone {
+    margin-right: 0.6rem;
+}
+
+@mixin alert($name, $bg, $color, $border) {
+    .#{$name} {
+        padding: 0 1rem;
+        border: 2px dotted $border;
+        background-color: $bg;
+        color: $color;
+        border-radius: 0.8rem;
+
+        .alert-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .title {
+                display: flex;
+                align-items: center;
+            }
+
+            .close {
+                cursor: pointer;
+                size: 20rem
+            }
+        }
+    }
+
+}
+
+@include alert("alert-default", $defaultBg , $defaultColor , $defaultBorder );
+@include alert("alert-success", $successBg , $successColor , $successBorder );
+@include alert("alert-warning", $warningBg , $warningColor , $warningBorder );
+@include alert("alert-error", $errorBg , $errorColor , $errorBorder );
+@include alert("alert-info", $infoBg , $infoColor , $infoBorder );
